@@ -9,7 +9,7 @@ exports.topics = [{
 exports.commands = [
   {
     topic: 'deploy',
-    command: 'deploy',
+    command: 'archive',
     description: 'Deploys an archive via the Build API',
     help: '/path/to/archive your.version.here',
     needsApp: true,
@@ -18,9 +18,9 @@ exports.commands = [
     run: function (context) {
       Source.create(context.app, context.auth.password).then(function(sourceUrls) {
         Source.upload(sourceUrls.uploadUrl, context.args.archive).then(function(uploadResult) {
-          console.log("Yay, uploaded: ", uploadResult);
+          console.log("Upload completed.", uploadResult);
           new Build(context.app, context.auth.password, sourceUrls.downloadUrl, context.args.version).then(function(buildResult) {
-            console.log("Build created", buildResult);
+            console.log("Build created: https://heroku.com/" + context.app + "/builds/" + buildResult);
           });
         });
       });

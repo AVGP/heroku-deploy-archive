@@ -4,7 +4,6 @@ var request = require('request'),
 module.exports = function(appName, authToken, downloadUrl, version) {
     console.log("Creating build for version\"" + version + "\" of \"" + appName + "\"")
     var buildPayload = JSON.stringify({ source_blob: { url: downloadUrl, version: version} });
-    console.log("PAYLOAD: ", buildPayload);
 
     return new Promise(function(resolve, reject) {
         request.post("https://api.heroku.com/apps/" + appName + "/builds", {

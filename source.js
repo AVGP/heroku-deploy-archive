@@ -36,7 +36,7 @@ module.exports = {
                     downloadUrl: result.source_blob.get_url
                 };
 
-                console.log("Successfully obtained source URLs:", source);
+                console.log("Successfully obtained source URLs.");
 
                 resolve(source);
             });
