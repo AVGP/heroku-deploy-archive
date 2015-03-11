@@ -1,0 +1,22 @@
+{
+  "name": "heroku-deploy",
+  "description": "hurr",
+  "version": "1.0.0",
+  "author": "Durr",
+  "bugs": {
+    "url": "https://github.com/heroku/heroku-hello-world/issues"
+  },
+  "keywords": [
+    "heroku-plugin"
+  ],
+  "license": "ISC",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heroku/heroku-hello-world"
+  },
+  "dependencies": {
+    "bluebird": "^2.9.13",
+    "request": "^2.53.0"
+  }
+}
