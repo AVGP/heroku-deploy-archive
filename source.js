@@ -1,6 +1,7 @@
 var request = require("request"),
     Promise = require("bluebird"),
-    fs      = require("fs");
+    fs      = require("fs"),
+    path    = require("path");
 
 module.exports = {
     create: function(appName, authToken) {
@@ -43,7 +44,7 @@ module.exports = {
         });
     },
     upload: function(uploadUrl, archivePath) {
-        var data = fs.readFileSync(archivePath);
+        var data = fs.readFileSync(path.resolve(archivePath));
 
         return new Promise(function(resolve, reject) {
             request.put(uploadUrl, {
