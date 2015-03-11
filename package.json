@@ -1,10 +1,10 @@
 {
   "name": "heroku-deploy",
-  "description": "hurr",
+  "description": "Deploy to Heroku from an archive",
   "version": "1.0.0",
-  "author": "Durr",
+  "author": "Martin Naumann <martin@geekonaut.de>",
   "bugs": {
-    "url": "https://github.com/heroku/heroku-hello-world/issues"
+    "url": "https://github.com/avgp/heroku-deploy/issues"
   },
   "keywords": [
     "heroku-plugin"
@@ -13,7 +13,7 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/heroku/heroku-hello-world"
+    "url": "https://github.com/avgp/heroku-deploy"
   },
   "dependencies": {
     "bluebird": "^2.9.13",
