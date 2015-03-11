@@ -2,6 +2,10 @@ var request = require('request'),
     Promise = require("bluebird");
 
 module.exports = function(appName, authToken, downloadUrl, version) {
+    console.log("Creating build for version\"" + version + "\" of \"" + appName + "\"")
+    var buildPayload = JSON.stringify({ source_blob: { url: downloadUrl, version: version} });
+    console.log("PAYLOAD: ", buildPayload);
+
     return new Promise(function(resolve, reject) {
         request.post("https://api.heroku.com/apps/" + appName + "/builds", {
             headers: {
@@ -9,7 +13,7 @@ module.exports = function(appName, authToken, downloadUrl, version) {
                 "Authorization": "Bearer " + authToken,
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({ source_blob: { url: downloadUrl, version: version} })
+            body: buildPayload
         }, function(err, res) {
             if(err) {
                 console.error("Error creating the source URLs: ", err);

@@ -36,14 +36,14 @@ module.exports = {
                     downloadUrl: result.source_blob.get_url
                 };
 
-                console.log("Successfully obtained source URLs");
+                console.log("Successfully obtained source URLs:", source);
 
                 resolve(source);
             });
         });
     },
     upload: function(uploadUrl, archivePath) {
-        var data = fs.readFileSync(archivePath, "utf8");
+        var data = fs.readFileSync(archivePath);
 
         return new Promise(function(resolve, reject) {
             request.put(uploadUrl, {

@@ -9,6 +9,7 @@ exports.topics = [{
 exports.commands = [
   {
     topic: 'deploy',
+    command: 'deploy',
     description: 'Deploys an archive via the Build API',
     help: '/path/to/archive your.version.here',
     needsApp: true,
