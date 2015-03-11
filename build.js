@@ -2,7 +2,7 @@ var request = require('request'),
     Promise = require("bluebird");
 
 module.exports = function(appName, authToken, downloadUrl, version) {
-    console.log("Creating build for version\"" + version + "\" of \"" + appName + "\"")
+    console.log("Creating build for version \"" + version + "\" of \"" + appName + "\"")
     var buildPayload = JSON.stringify({ source_blob: { url: downloadUrl, version: version} });
 
     return new Promise(function(resolve, reject) {

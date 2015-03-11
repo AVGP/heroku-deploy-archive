@@ -20,7 +20,7 @@ exports.commands = [
         Source.upload(sourceUrls.uploadUrl, context.args.archive).then(function(uploadResult) {
           console.log("Upload completed.", uploadResult);
           new Build(context.app, context.auth.password, sourceUrls.downloadUrl, context.args.version).then(function(buildResult) {
-            console.log("Build created: https://heroku.com/" + context.app + "/builds/" + buildResult);
+            console.log("Build created: https://heroku.com/" + context.app + "/activity/builds/" + buildResult);
           });
         });
       });
