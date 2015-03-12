@@ -1,5 +1,6 @@
 var Source = require('./source'),
-    Build  = require('./build');
+    Build  = require('./build'),
+    path   = require('path');
 
 exports.topics = [{
   name: 'deploy',
@@ -17,10 +18,10 @@ exports.commands = [
     args: [{name: 'archive'}, {name: 'version'}],
     run: function (context) {
       Source.create(context.app, context.auth.password).then(function(sourceUrls) {
-        Source.upload(sourceUrls.uploadUrl, context.args.archive).then(function(uploadResult) {
-          console.log("Upload completed.", uploadResult);
+        Source.upload(sourceUrls.uploadUrl, path.resolve(context.cwd, context.args.archive)).then(function(uploadResult) {
+          console.log('Upload completed.', uploadResult);
           new Build(context.app, context.auth.password, sourceUrls.downloadUrl, context.args.version).then(function(buildResult) {
-            console.log("Build created: https://dashboard.heroku.com/apps/" + context.app + "/activity/builds/" + buildResult);
+            console.log('Build created: https://dashboard.heroku.com/apps/' + context.app + '/activity/builds/' + buildResult);
           });
         });
       });
